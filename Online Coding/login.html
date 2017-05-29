@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+<title>User Login</title>
+<link href="style/style.css" rel="stylesheet" type="text/css" />
+<link href="style/styles.css" rel="stylesheet" type="text/css" />
+<script>
+function empty() {
+    var x;
+    x = document.getElementById("user").value;
+	y = document.getElementById("pass").value;
+    if (x == "" || x.length < 4 ) {
+        alert("Please Enter a Valid Username");
+        return false;
+    }else if(y == "" || y.length < 4 ) {
+		alert("Please Enter a Valid Password");
+	}
+}
+</script>
+</head>
+<body class="center">
+<div id="dolphincontainer">
+	<div id="out">
+		<ul>
+			<li><a href="register.html"><span>Sign Up</span></a></li>
+		</ul>
+	</div>
+</div>
+	<div>
+		<br/><form class="round" method="post" action="db2.php" onsubmit="return empty()">
+		<br/><h2>Log In</h2>
+		<table class="center">
+			<tr><td><input type="text" name="login" id="user" class="field  round" placeholder="Username" /> </td></tr>
+			<tr><td><input type="password" name="password" id="pass"  class="field  round" placeholder="Password"/> </td></tr>
+			<tr><td align="center"><input type="submit" value="Login" class="btn" /></td></tr>
+		</table>
+		</form>
+	</div>
+</body>
+</html>

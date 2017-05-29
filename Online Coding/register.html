@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+<title>User Registration</title>
+<script>
+function checkInput(){
+	var username = document.getElementById('username');
+	var pass1 = document.getElementById('pass1');
+	var pass2 = document.getElementById('pass2');
+	if (username.value.length<4){ 
+		document.getElementById('error').innerHTML="Username should be at least 4 characters long";
+		username.focus(); 
+		return false;
+	}else if(pass1.value.length<6 || pass2.value.length<6){
+		document.getElementById('error').innerHTML="Password should be at least 6 characters";
+		pass1.focus();
+		return false;
+	}else if (pass1.value!=pass2.value){ 
+		document.getElementById('error').innerHTML="Passwords don't match";
+		pass2.focus();
+		return false;
+	}else{
+
+			return true;
+	}
+}
+		
+</script>
+<link href="style/style.css" rel="stylesheet" type="text/css" />
+<link href="style/styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="center">
+<div id="dolphincontainer">
+	<div id="out">
+		<ul>
+			<li><a href="login.html"><span>Login</span></a></li>
+		</ul>
+	</div>
+</div>
+<div>
+	<br/><form class="round" method="post" action="db.php" onsubmit="return checkInput()">
+	<br/><h2>Create an account</h2>
+	<table class="center">
+		<tr><td><input type="text" name="login" class="field round" id="username" placeholder="Username" required /> </td></tr>
+		<tr><td><input type="text" name="firstname" class="field round" id="first" placeholder="First name"/> </td></tr>
+		<tr><td><input type="text" name="lastname" class="field round" id="last" placeholder="Last name"/> </td></tr>
+		<tr><td><input type="text" name="skype" class="field round" id="skype" placeholder="Skype name (optional)"/> </td></tr>
+		<tr><td><input type="password" name="password" class="field round" id="pass1" placeholder="Password" required/> </td></tr>
+		<tr><td><input type="password" name="password2" class="field round" id="pass2" placeholder="Confirm password" required/> </td></tr>
+		<tr><td align="center"><input type="submit" value="Register" class="btn" id="username"/></td></tr>
+	</table>
+	<p id="error" class="error"></p>
+	</form>
+	</div>
+</body>
+</html>
